@@ -18,6 +18,9 @@ class Solution:
 #   - Average Case: O(n)
 #   - Worst Case: O(n^2)
 # Extra Space Complexity: O(1)
+# QuickSelect algorithm is O(n) on average because it uses the QuickSort partitioning mechanism to divide the input array into smaller sub-arrays, 
+# and it only recurses on one of the sub-arrays, reducing the problem size by roughly half in each iteration. 
+# This results in an average-case runtime of O(n).
 class Solution:
     def findKthLargest(self, nums: List[int], k: int) -> int:
         # edge case
