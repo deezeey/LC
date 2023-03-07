@@ -30,7 +30,7 @@ class NestedIterator:
             if isinstance(e, int):
                 yield e
             else:
-                yield self.flatGenerator(e)
+                yield self.flatGenerator(e)  # 其实就差一个from，这里改成yield from然后这个function里用上自带的 isInteger(), getInteger(), getList() func就好了
 
     def findNext(self):
         try:
@@ -44,7 +44,7 @@ class NestedIterator:
         return res
     
     def hasNext(self) -> bool:
-        return True if self.next_num else False
+        return True if self.next_num else False  # 这里不能是 if self.next_num 因为 它可以是0
     
 
 # 官方正解的generator的写法
@@ -105,7 +105,7 @@ class NestedIterator:
             self._next_num = None
     
     def next(self) -> int:
-        res = self._next_num, self.findNext()
+        res = self._next_num, self.findNext() # bug在这里把逗号后面东西挪到下一行就好了
         return res
     
     def hasNext(self) -> bool:
